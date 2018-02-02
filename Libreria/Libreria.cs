@@ -28,5 +28,26 @@ namespace Libreria
             return;
 
         }
+
+        public decimal CalPromProms(decimal[] vector, Int16 k) {
+            decimal prom = 0, resp = 0;
+            Int16 ciclo;
+
+            for (ciclo = 0; ciclo < k; ciclo++) {
+                resp += vector[ciclo];
+            }
+
+            prom = resp / k;
+
+            return prom;
+        }
+
+        public void DespliegaPromProms(decimal promprom) {
+
+            Console.WriteLine("El promedio general es: {0}", promprom);
+           
+            return;
+        }
+
     }
 }

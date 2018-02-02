@@ -36,27 +36,47 @@ namespace ProyectoUno
 
         static void Main(string[] args)
         {
+            decimal[] vector = new decimal[10]; //Areglo
+
+            Int16[,] matriz = new Int16[10, 10];
+
             ProyectoUno obj = new ProyectoUno();
             Libreria.Libreria ObjLibreria = new Libreria.Libreria();
 
             //Atributos del Main
             Int16 a, b, c;
-            decimal prom;
+            Int16 ciclos, kuantos;
+            decimal prom,promprom;
 
             String e;
 
             //Entrada de datos
+            Console.WriteLine("Cuantas Veces?");
+                kuantos = Convert.ToInt16(Console.ReadLine());
+
+            for (ciclos = 0; ciclos < kuantos; ciclos++)
+            {
+
                 Console.WriteLine("Dar el valor de a");
                 a = Convert.ToInt16(Console.ReadLine());
                 Console.WriteLine("Dar el valor de b");
                 b = Convert.ToInt16(Console.ReadLine());
                 Console.WriteLine("Dar el valor de c");
                 c = Convert.ToInt16(Console.ReadLine());
-            //Un proceso
-                 // prom = (a + b + c) / 3;
-                prom = ObjLibreria.calprom(a,b,c);
-            //Resultado
-            ObjLibreria.muestrarProm(prom);
+                //Un proceso
+                // prom = (a + b + c) / 3;
+                prom = ObjLibreria.calprom(a, b, c);
+
+                vector[ciclos]= prom;
+
+                //Resultado
+                ObjLibreria.muestrarProm(prom);
+                
+            }
+
+            promprom = ObjLibreria.CalPromProms(vector, kuantos);
+            ObjLibreria.DespliegaPromProms(promprom);
+            Console.Read();
         }
     }
 }
